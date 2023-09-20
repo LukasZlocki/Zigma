@@ -10,12 +10,14 @@ namespace Zigma
         private ZigmaModel model;
         private CsvAdapter csvAdapter;
         private StructureTransform structTransform;
+        public FileIOAdapter loader;
 
         public Zigma()
         {
             model = new ZigmaModel();
             csvAdapter = new CsvAdapter();
             structTransform = new StructureTransform();
+            loader = new FileIOAdapter();
         }
 
         #region ZigmaModel
