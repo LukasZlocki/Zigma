@@ -1,4 +1,6 @@
-﻿namespace Zigma.ExtractionTools
+﻿using Zigma.Models;
+
+namespace Zigma.ExtractionTools
 {
     public class ExtractionTool : ICsvAdapter
     {
@@ -10,14 +12,27 @@
         }
 
         /// <summary>
-        /// Save data from list os strings array (string line in format [data1, data2, data3, data4, ...) to csv file
+        /// Load csv data to Zigma dataset
         /// </summary>
-        /// <param name="dataSet">Dataset to convert to csv file as list of strings array.</param>
-        /// <param name="filePath">Output file path.</param>
-        /// <param name="csvFileName">Output csv file name.</param>
-        public void SaveToCsvFile(List<string> dataSet, string filePath, string csvFileName)
+        /// <param name="filePath"></param>
+        /// <param name="csvFileName"></param>
+        /// <returns>a A <see cref="ZigmaDataset"/> object containing Zigma dataset</returns>
+        public ZigmaDataset LoadFromCsvFile(string filePath, string csvFileName)
         {
-            csvAdapter.SaveToCsvFile(dataSet, filePath, csvFileName);
+            ZigmaDataset _zgimaDataset = csvAdapter.LoadFromCsvFile(filePath, csvFileName);
+            return _zgimaDataset; 
+        }
+
+        /// <summary>
+        /// Save Zigma dataset to csv file
+        /// </summary>
+        /// <param name="zigmaDataset"></param>
+        /// <param name="filePath"></param>
+        /// <param name="csvFileName"></param>
+        /// <exception cref="NotImplementedException"></exception>
+        public void SaveToCsvFile(ZigmaDataset zigmaDataset, string filePath, string csvFileName)
+        {
+            throw new NotImplementedException();
         }
     }
 }

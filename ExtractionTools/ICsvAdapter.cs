@@ -1,7 +1,10 @@
-﻿namespace Zigma.ExtractionTools
+﻿using Zigma.Models;
+
+namespace Zigma.ExtractionTools
 {
     internal interface ICsvAdapter
     {
-        public void SaveToCsvFile(List<string> dataSet, string filePath, string csvFileName);
+        public ZigmaDataset LoadFromCsvFile(string filePath, string csvFileName);
+        public void SaveToCsvFile(ZigmaDataset zigmaDataset, string filePath, string csvFileName);
     }
 }
