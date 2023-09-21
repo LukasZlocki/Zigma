@@ -3,14 +3,15 @@
     internal interface IZigmaModel
     {
         // Create
-        public void CreateZigmaModel(List<string> csvModel);
+        public void CreateZigmaDataset(ZigmaDataset zigmaDataset);
         // Get
-        public List<string[]> GetDataset();
+        public ZigmaDataset GetZigmaDataset();
         // Update
-        public void ChangeDataset(List<string[]> newDataset);
+        public void UpdateZigmaDataset(ZigmaDataset zigmaDataset);
         // Print
-        public void PrintDataset(int quantityOfRowsToPrint);
-        public void PrintDataset();
-        public void PrintDataset(List<string[]> zigmaDataset, int quantityOfRowsToPrint);
+        public void PrintZigmaDataset(int quantityOfRowsToPrint);
+        public void PrintZigmaDataset();
+        public void PrintZigmaDataset(ZigmaDataset zigmaDataset, int quantityOfRowsToPrint);
+        public void PrintThisZigmaDataset(ZigmaDataset zigmaDataset);
     }
 }

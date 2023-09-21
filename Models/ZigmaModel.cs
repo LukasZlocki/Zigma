@@ -1,52 +1,48 @@
 ﻿namespace Zigma.Models
 {
-    public class ZigmaModel : IZigmaModel
+    public class ZigmaModel : ZigmaDataset, IZigmaModel
     {
-        private List<string[]> ZigmaDataset = new List<string[]>();
         private int ZigmaColumnsQuantity;
         private int ZigmaRowsQuantity;
 
+        // CREATE
+        /// <summary>
+        /// Creating Zigma dataset from csv file.
+        /// </summary>
+        /// <param name="_zigmaDataset">Dataset</param>
+        public void CreateZigmaDataset(ZigmaDataset _zDataset)
+        {
+            zigmaDataset = _zDataset.zigmaDataset;
+        }
+
+        // UPDATE
         /// <summary>
         /// Exchange old dataset with new dataset. Old dataset will be deleted.
         /// </summary>
         /// <param name="newDataset">New Zigma data set</param>
-        public void ChangeDataset(List<string[]> newDataset)
+        public void UpdateZigmaDataset(ZigmaDataset _zDataset)
         {
-            if (newDataset != null)
+            if (_zDataset != null)
             {
-                ZigmaDataset.Clear();
-                ZigmaDataset = newDataset;
+                zigmaDataset.Clear();
+                zigmaDataset = _zDataset.zigmaDataset;
             }
             else
             {
                 Console.Write("Error. Not able to change dataset. Given data set is empty.");
             }
-
         }
-
-        /// <summary>
-        /// Creating Zigma dataset from csv file.
-        /// </summary>
-        /// <param name="dataset">List of strings with coma separators</param>
-        public void CreateZigmaModel(List<string> dataset)
-        {
-            List<string[]> _newDataList = new List<string[]>();
-            // ToDo: Write unit test for the class
-            foreach (string element in dataset)
-            {
-                string[] divString = element.Split(',');
-                _newDataList.Add(divString);
-            }
-            ZigmaDataset = _newDataList;
-        }
-
+        
+        // GET
         /// <summary>
         /// Return Zigma dataset
         /// </summary>
         /// <returns>List<string[]></string></returns>
-        public List<string[]> GetDataset()
+        public ZigmaDataset GetZigmaDataset()
         {
-            return ZigmaDataset;
+            ZigmaDataset _zDataset = new ZigmaDataset();
+            _zDataset.zigmaDataset = zigmaDataset;
+            return _zDataset;
         }
 
         /// <summary>
@@ -54,25 +50,17 @@
         /// </summary>
         /// <param name="zigmaDataset">Zigma dataset</param>
         /// <param name="quantityOfRowsToPrint">Number of rows to print</param>
-        public void PrintDataset(int quantityOfRowsToPrint)
+        public void PrintZigmaDataset(int quantityOfRowsToPrint)
         {
-            PrintDataset(ZigmaDataset, quantityOfRowsToPrint);
+            PrintZigmaDataset(zigmaDataset, quantityOfRowsToPrint);
         }
 
         /// <summary>
         /// Printing Zigma whole dataset.
         /// </summary>
-        public void PrintDataset()
+        public void PrintZigmaDataset()
         {
-            PrintDataset(ZigmaDataset);
-        }
-
-        /// <summary>
-        /// Printing Zigma whole dataset.
-        /// </summary>
-        public void PrintDataset(List<string[]> zigmaDataset)
-        {
-            PrintDataset(zigmaDataset, 0);
+            PrintZigmaDataset(zigmaDataset, 0);
         }
 
         /// <summary>
@@ -80,10 +68,10 @@
         /// </summary>
         /// <param name="zigmaDataset"></param>
         /// <param name="quantityOfRowsToPrint">Number of rows to print.</param>
-        public void PrintDataset(List<string[]> zigmaDataset, int quantityOfRowsToPrint)
+        private void PrintZigmaDataset(List<string[]> dataset, int quantityOfRowsToPrint)
         {
             int counter = 0;
-            foreach (string[] element in ZigmaDataset)
+            foreach (string[] element in dataset)
             {
                 if (counter == quantityOfRowsToPrint)
                 {
@@ -109,5 +97,6 @@
             int _rowsQuantity = dataset.Count;
             return _rowsQuantity;
         }
+
     }
 }
