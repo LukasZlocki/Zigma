@@ -11,7 +11,5 @@
         // Print
         public void PrintZigmaDataset(int quantityOfRowsToPrint);
         public void PrintZigmaDataset();
-        public void PrintZigmaDataset(ZigmaDataset zigmaDataset, int quantityOfRowsToPrint);
-        public void PrintThisZigmaDataset(ZigmaDataset zigmaDataset);
     }
 }
