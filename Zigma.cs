@@ -5,60 +5,20 @@ using Zigma.TransformationTools;
 namespace Zigma
 {
 
-    public class Zigma : IStructureTransform, IZigmaModel
+    public class Zigma
     {
-        private ZigmaModel model;
         private StructureTransform structTransform;
-        public FileIOAdapter loader;
 
         public ExtractionTool extractionTool;
-        
+        public ZigmaModel zigmaModel;
+
         public Zigma()
         {
             extractionTool = new ExtractionTool();
+            zigmaModel = new ZigmaModel();
 
-            model = new ZigmaModel();
             structTransform = new StructureTransform();
-            loader = new FileIOAdapter();
         }
-
-        #region ZigmaModel
-        /// <summary>
-        /// Exchange old dataset with new dataset. Old dataset will be deleted.
-        /// </summary>
-        /// <param name="newDataset">New Zigma data set.</param>
-        public void ChangeDataset(List<string[]> newDataset)
-        {
-            model.ChangeDataset(newDataset);
-        }
-
-        /// <summary>
-        /// Printing Zigma whole dataset.
-        /// </summary>
-        public void PrintDataset()
-        {
-            model.PrintDataset();
-        }
-
-        /// <summary>
-        /// Printing Zigma dataset with specific quantity of rows.
-        /// </summary>
-        /// <param name="zigmaDataset">Zigma dataset.</param>
-        /// <param name="quantityOfRowsToPrint">Number of rows to print</param>
-        public void PrintDataset(List<string[]> zigmaDataset, int quantityOfRowsToPrint)
-        {
-            model.PrintDataset(zigmaDataset, quantityOfRowsToPrint);
-        }
-
-        /// <summary>
-        /// Creating Zigma dataset from csv file.
-        /// </summary>
-        /// <param name="dataset">List of strings with coma separators</param>
-        public void CreateZigmaModel(List<string> csvModel)
-        {
-            model.CreateZigmaModel(csvModel);
-        }
-        #endregion
 
         #region StructureTransform
         // ToDo: Method moved to ZIGMA or convert to zigma during reading from csv
