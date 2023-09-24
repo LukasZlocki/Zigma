@@ -49,18 +49,39 @@ namespace Zigma.ExtractionTools
                 Console.WriteLine($"An error occurred while saving to CSV file: {ex.Message}");
             }
         }
-     /*
-    private ZigmaDataset ConvertDataToZigmaModel(List<string> datasetToConvert)
+        /*
+       private ZigmaDataset ConvertDataToZigmaModel(List<string> datasetToConvert)
+           {
+               List<string[]> _newDataList = new List<string[]>();
+               // ToDo: Write unit test for the class
+               foreach (string element in datasetToConvert)
+               {
+                   string[] divString = element.Split(',');
+                   _newDataList.Add(divString);
+               }
+               ZigmaDataset = _newDataList;
+           }
+        */
+
+        /// <summary>
+        /// Convert Csv data as List<string> to Zigma model
+        /// </summary>
+        /// <param name="dataset">csv list of strings</param>
+        /// <returns>Zigma model</returns>
+        public ZigmaModel ConvertCsvToZigmaModel(List<string> dataset)
         {
-            List<string[]> _newDataList = new List<string[]>();
+            ZigmaModel _zModel = new ();
+            List<string[]> _newDataList = new ();
             // ToDo: Write unit test for the class
-            foreach (string element in datasetToConvert)
+            foreach (string element in dataset)
             {
                 string[] divString = element.Split(',');
                 _newDataList.Add(divString);
             }
-            ZigmaDataset = _newDataList;
+            _zModel.zigmaDataset = _newDataList;
+            return _zModel;
         }
-     */
+
+
     }
 }
