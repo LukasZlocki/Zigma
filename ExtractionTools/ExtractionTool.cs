@@ -4,7 +4,7 @@ namespace Zigma.ExtractionTools
 {
     public class ExtractionTool : ICsvAdapter
     {
-        private CsvAdapter csvAdapter;
+        private readonly CsvAdapter csvAdapter;
 
         public ExtractionTool()
         {

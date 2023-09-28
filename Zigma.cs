@@ -7,7 +7,7 @@ namespace Zigma
 
     public class Zigma
     {
-        private StructureTransform structTransform;
+        private readonly StructureTransform structTransform;
 
         public ExtractionTool extractionTool;
         public ZigmaModel zigmaModel;
