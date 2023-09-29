@@ -1,4 +1,6 @@
-﻿namespace Zigma.TransformationTools
+﻿using Zigma.Models;
+
+namespace Zigma.TransformationTools
 {
 
     // ToDo ZIGMA | TransformTool | Add method to create new column (add new column at the end of dataset)
@@ -11,9 +13,13 @@
     internal class StructureTransform : IStructureTransform
     {
 
-        public Zigma ColumnCreateNew(Zigma zDataset)
+        public ZigmaModel ColumnCreateNew(ZigmaModel zDataset)
         {
-            Zigma transformedDataset = new ();
+            ZigmaModel transformedDataset = new();
+            foreach (var element in zDataset.zigmaDataset)
+            {
+
+            }
             // ToDo: Write logic here
             return transformedDataset;
         }

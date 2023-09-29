@@ -2,8 +2,8 @@
 {
     public class ZigmaModel : ZigmaDataset, IZigmaModel
     {
-        private int ZigmaColumnsQuantity;
-        private int ZigmaRowsQuantity;
+        private int DatasetColumnsQuantity;
+        private int DatasetRowsQuantity;
 
         // CREATE
         /// <summary>
