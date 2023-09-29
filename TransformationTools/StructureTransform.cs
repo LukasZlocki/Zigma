@@ -1,7 +1,38 @@
 ﻿namespace Zigma.TransformationTools
 {
+
+    // ToDo ZIGMA | TransformTool | Add method to create new column (add new column at the end of dataset)
+    // ToDo ZIGMA | TransformTool | Add method to remove column
+    // ToDo Zigma | TransformTool | Add method to move particular column to new possition ex: no move column nb 5 to 3) rest columns will move +1 column (ColumnMove(a, c)) 
+    // ToDo Zigma | TransformTool | Add method to switch columns ex: switch column 3 with column 2 (ColumnSwitch(a, b))
+    // ToDo Zigma | TransformTool | Add method to divide date by day / week / month and sign what to do with rest of columns (+, -, *, /)
+    // ToDo Zigma | TransformTool | Add method to do math operation in particular column -ex: have result in particular column (operation +, - , * , /, )
+
     internal class StructureTransform : IStructureTransform
     {
+
+        public Zigma ColumnCreateNew(Zigma zDataset)
+        {
+            Zigma transformedDataset = new ();
+            // ToDo: Write logic here
+            return transformedDataset;
+        }
+
+        public Zigma ColumnMove(Zigma zDataset, int columnNumberToMove, int newColumnPossitionNumber)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Zigma ColumnRemove(Zigma zDataset, int columnNumber)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Zigma ColumnSwitch(Zigma zDataset, int columnNumberToSwitch, int columnNumberSwitch)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// Transforming given column number to date to date time format [yyyy/mm/dd]
         /// </summary>

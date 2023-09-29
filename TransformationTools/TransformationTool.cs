@@ -10,6 +10,26 @@
             transform = new StructureTransform();
         }
 
+        public Zigma ColumnCreateNew(Zigma zDataset)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Zigma ColumnMove(Zigma zDataset, int columnNumberToMove, int newColumnPossitionNumber)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Zigma ColumnRemove(Zigma zDataset, int columnNumber)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Zigma ColumnSwitch(Zigma zDataset, int columnNumberToSwitch, int columnNumberSwitch)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// Transforming given column number to date to date time format [yyyy/mm/dd]
         /// </summary>
