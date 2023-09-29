@@ -3,9 +3,11 @@
     internal class StructureTransform : IStructureTransform
     {
         /// <summary>
-        /// Transforming given column number to date [yyyy/mm/dd].
+        /// Transforming given column number to date to date time format [yyyy/mm/dd]
         /// </summary>
-        /// <param name="columnNumber">Column number to transform into date.</param>
+        /// <param name="zDataset">Zigma dataset to date transform</param>
+        /// <param name="dateColumnNumber">Column number to transform to date</param>
+        /// <returns>Zigma dataset</returns>
         public Zigma TransformColumnToDate(Zigma zDataset, int dateColumnNumber)
         {
             Zigma transformedDataset = new ();
