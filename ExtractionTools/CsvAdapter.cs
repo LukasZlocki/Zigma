@@ -1,12 +1,9 @@
-﻿using System.Data;
-using Zigma.Models;
+﻿using Zigma.Models;
 
 namespace Zigma.ExtractionTools
 {
     internal class CsvAdapter : ICsvAdapter
     {
-
-
         // READ
         /// <summary>
         /// Load csv data to Zigma dataset
@@ -16,9 +13,25 @@ namespace Zigma.ExtractionTools
         /// <returns>a A <see cref="ZigmaDataset"/> object containing Zigma dataset</returns>
         public ZigmaDataset LoadFromCsvFile(string filePath, string csvFileName)
         {
-            ZigmaDataset _zDataset = new ZigmaDataset();
-            // ToDo: Code loading data from csv file here
-            // ToDo: write class transfering List<string> csv to zigma model
+            ZigmaDataset _zDataset = new ();
+            try
+            {
+                using (StreamReader reader = new (filePath + csvFileName))
+                {
+                    while (!reader.EndOfStream)
+                    {
+                        string line = reader.ReadLine();
+                        string[] values = line.Split(',');
+
+                        // You can add more error handling here if needed.
+                        _zDataset.zigmaDataset.Add(values);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred while loading from CSV file: {ex.Message}");
+            }
             return _zDataset;
         }
 
@@ -31,11 +44,11 @@ namespace Zigma.ExtractionTools
         public void SaveToCsvFile(ZigmaDataset zigmaDataset, string filePath, string csvFileName)
         {
             // ToDo: write class transfering zigma model to List<string> to save as csv
-            List<string> dataSet = new List<string>(); // ToDo: code transfering of data from zigmna to List<string>here
+            List<string> dataSet = new (); // ToDo: code transfering of data from zigmna to List<string>here
             string fullPath = filePath + csvFileName;
             try
             {
-                using (StreamWriter sw = new StreamWriter(fullPath))
+                using (StreamWriter sw = new (fullPath))
                 {
                     foreach (string line in dataSet)
                     {

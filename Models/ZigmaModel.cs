@@ -4,6 +4,7 @@
     {
         private int DatasetColumnsQuantity;
         private int DatasetRowsQuantity;
+        private ZigmaDataset zDataset = new();
 
         // CREATE
         /// <summary>

@@ -2,9 +2,9 @@
 {
     public class ZigmaDataset
     {
-        public List<string[]> zigmaDataset;
+        internal List<string[]> zigmaDataset;
 
-        public ZigmaDataset()
+        internal ZigmaDataset()
         {
             zigmaDataset = new();
         }
