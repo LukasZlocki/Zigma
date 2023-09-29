@@ -13,7 +13,7 @@
         /// <param name="_zigmaDataset">Dataset</param>
         public void CreateZigmaDataset(ZigmaDataset _zDataset)
         {
-            zigmaDataset = _zDataset.zigmaDataset;
+            zDataset = _zDataset;
         }
 
         // UPDATE
@@ -25,8 +25,8 @@
         {
             if (_zDataset != null)
             {
-                zigmaDataset.Clear();
-                zigmaDataset = _zDataset.zigmaDataset;
+                zDataset.zigmaDataset.Clear();
+                zDataset = _zDataset;
             }
             else
             {
@@ -41,9 +41,7 @@
         /// <returns>List<string[]></string></returns>
         public ZigmaDataset GetZigmaDataset()
         {
-            ZigmaDataset _zDataset = new ZigmaDataset();
-            _zDataset.zigmaDataset = zigmaDataset;
-            return _zDataset;
+            return zDataset;
         }
 
         /// <summary>
@@ -53,7 +51,7 @@
         /// <param name="quantityOfRowsToPrint">Number of rows to print</param>
         public void PrintZigmaDataset(int quantityOfRowsToPrint)
         {
-            PrintZigmaDataset(zigmaDataset, quantityOfRowsToPrint);
+            PrintZigmaDataset(zDataset.zigmaDataset, quantityOfRowsToPrint);
         }
 
         /// <summary>
@@ -61,7 +59,7 @@
         /// </summary>
         public void PrintZigmaDataset()
         {
-            PrintZigmaDataset(zigmaDataset, 0);
+            PrintZigmaDataset(zDataset.zigmaDataset, 0);
         }
 
         /// <summary>
