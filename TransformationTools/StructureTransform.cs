@@ -12,16 +12,9 @@ namespace Zigma.TransformationTools
 
     internal class StructureTransform : IStructureTransform
     {
-
-        public ZigmaModel ColumnCreateNew(ZigmaModel zDataset)
+        public ZigmaModel ColumnCreateNew(Zigma zDataset)
         {
-            ZigmaModel transformedDataset = new();
-            foreach (var element in zDataset.zigmaDataset)
-            {
-
-            }
-            // ToDo: Write logic here
-            return transformedDataset;
+            throw new NotImplementedException();
         }
 
         public Zigma ColumnMove(Zigma zDataset, int columnNumberToMove, int newColumnPossitionNumber)
@@ -38,6 +31,7 @@ namespace Zigma.TransformationTools
         {
             throw new NotImplementedException();
         }
+
 
         /// <summary>
         /// Transforming given column number to date to date time format [yyyy/mm/dd]

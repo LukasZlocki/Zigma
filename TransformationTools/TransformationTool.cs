@@ -1,4 +1,6 @@
-﻿namespace Zigma.TransformationTools
+﻿using Zigma.Models;
+
+namespace Zigma.TransformationTools
 {
     public class TransformationTool : IStructureTransform
     {
@@ -10,7 +12,7 @@
             transform = new StructureTransform();
         }
 
-        public Zigma ColumnCreateNew(Zigma zDataset)
+        public ZigmaModel ColumnCreateNew(Zigma zDataset)
         {
             throw new NotImplementedException();
         }
@@ -29,6 +31,7 @@
         {
             throw new NotImplementedException();
         }
+
 
         /// <summary>
         /// Transforming given column number to date to date time format [yyyy/mm/dd]
