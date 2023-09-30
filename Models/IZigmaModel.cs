@@ -10,6 +10,5 @@
         public void UpdateZigmaDataset(ZigmaDataset zigmaDataset);
         // Print
         public void PrintZigmaDataset(int quantityOfRowsToPrint);
-        public void PrintZigmaDataset();
     }
 }

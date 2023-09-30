@@ -55,14 +55,6 @@
         }
 
         /// <summary>
-        /// Printing Zigma whole dataset.
-        /// </summary>
-        public void PrintZigmaDataset()
-        {
-            PrintZigmaDataset(zDataset.zigmaDataset, 0);
-        }
-
-        /// <summary>
         /// Printing Zigma dataset with specific quantity of rows.
         /// </summary>
         /// <param name="zigmaDataset"></param>
