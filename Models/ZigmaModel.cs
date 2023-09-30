@@ -14,6 +14,8 @@
         public void CreateZigmaDataset(ZigmaDataset _zDataset)
         {
             zDataset = _zDataset;
+            DatasetColumnsQuantity = CalculateColumnsQuantity(_zDataset.zigmaDataset);
+            DatasetRowsQuantity = CalculateRowsQuantity(_zDataset.zigmaDataset);
         }
 
         // UPDATE
@@ -27,6 +29,8 @@
             {
                 zDataset.zigmaDataset.Clear();
                 zDataset = _zDataset;
+                CalculateColumnsQuantity(_zDataset.zigmaDataset);
+                CalculateRowsQuantity(_zDataset.zigmaDataset);
             }
             else
             {
@@ -76,17 +80,21 @@
                 Console.WriteLine("" + _showString);
                 counter++;
             }
+            Console.WriteLine("");
+            Console.WriteLine("Columns in dataset: " + DatasetColumnsQuantity);
+            Console.WriteLine("Rows in dataset: " + DatasetRowsQuantity);
+            Console.WriteLine("");
         }
 
         private int CalculateColumnsQuantity(List<string[]> dataset)
         {
-            int _columnsQuantity = dataset[0].Length;
-            return _columnsQuantity;
+            int _datasetColumnsQuantity = dataset[0].Length;
+            return _datasetColumnsQuantity;
         }
-       private int CalculateRowsQuantity(List<string[]> dataset)
+        private int CalculateRowsQuantity(List<string[]> dataset)
         {
-            int _rowsQuantity = dataset.Count;
-            return _rowsQuantity;
+                int _datasetRawsQuantity = dataset.Count;
+                return _datasetRawsQuantity;
         }
 
     }
