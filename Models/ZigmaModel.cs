@@ -19,6 +19,11 @@
             DatasetRowsQuantity = CalculateRowsQuantity(_zDataset.zigmaDataset);
         }
 
+        public void CreateZigmaDatasetFromRawDataset(List<string[]> rawDataset)
+        {
+            zDataset.SetDataset(rawDataset);
+        }
+
         // UPDATE
         /// <summary>
         /// Exchange old dataset with new dataset. Old dataset will be deleted.
@@ -47,6 +52,15 @@
         public ZigmaDataset GetZigmaDataset()
         {
             return zDataset;
+        }
+
+        /// <summary>
+        /// Return dataset as List<string[]>
+        /// </summary>
+        /// <returns>List<string></returns>
+        public List<string[]> GetRawZigmaDataset()
+        {
+            return zDataset.GetDataset();
         }
 
         /// <summary>

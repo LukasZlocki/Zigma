@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using System.Diagnostics.Metrics;
 using Zigma.Models;
 
 namespace Zigma.TransformationTools
@@ -25,21 +26,25 @@ namespace Zigma.TransformationTools
             ZigmaDataset _transformedDataset = new();
             foreach (string[] row in _zDataset.zigmaDataset)
             {
-                int _rowElementsQuantity = row.Length;
-                string[] _transformedRow = new string[_rowElementsQuantity];
-                int _elementCounter = 0;
+                int _newRowElementsQuantity = row.Length - 1; // removing one row
+                string[] _transformedRow = new string[_newRowElementsQuantity];
+                int _oldTablePossitionCounter = 0; // possition on column in old table
+                int _newTablePossitionCounter = 0; // column possition in new table without one column
                 foreach (string element in row)
                 {
-                    if (_elementCounter == columnNumber)
+                    if (_oldTablePossitionCounter == columnNumber)
                     {
+                        _oldTablePossitionCounter = _oldTablePossitionCounter + 1;
                         continue; // skipping this column 
                     }
                     else
                     {
-                        _transformedRow[_elementCounter] = element;
+                        _transformedRow[_newTablePossitionCounter] = element;
                     }
-                    _transformedDataset.zigmaDataset.Add(_transformedRow);
+                    _oldTablePossitionCounter = _oldTablePossitionCounter + 1;
+                    _newTablePossitionCounter = _newTablePossitionCounter + 1;
                 }
+                _transformedDataset.zigmaDataset.Add(_transformedRow);
             }
             ZigmaModel transformedModel = new();
             transformedModel.CreateZigmaDataset(_transformedDataset);

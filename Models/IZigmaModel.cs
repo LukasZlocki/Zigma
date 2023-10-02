@@ -4,6 +4,8 @@
     {
         // Create
         public void CreateZigmaDataset(ZigmaDataset zigmaDataset);
+        // Create
+        public void CreateZigmaDatasetFromRawDataset(List<string[]> rawDataset);
         // Get
         public ZigmaDataset GetZigmaDataset();
         // Update

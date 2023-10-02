@@ -13,5 +13,10 @@
         {
             zigmaDataset = newDataset;
         }
+
+        public List<string[]> GetDataset()
+        {
+            return zigmaDataset;
+        }
     }
 }

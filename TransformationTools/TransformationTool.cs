@@ -4,7 +4,7 @@ namespace Zigma.TransformationTools
 {
     public class TransformationTool : IStructureTransform
     {
-        private StructureTransform transform;
+        private readonly StructureTransform transform;
 
         //constructor
         public TransformationTool()
@@ -20,9 +20,7 @@ namespace Zigma.TransformationTools
         /// <returns>Transfored dataset - without specific column number</returns>
         public ZigmaModel ColumnRemove(ZigmaModel zModel, int columnNumber)
         {
-
-            TransformationTool tservice = new();
-            ZigmaModel _transformedModel = tservice.ColumnRemove(zModel, columnNumber);
+            ZigmaModel _transformedModel = transform.ColumnRemove(zModel, columnNumber);
             return _transformedModel;
         }
 
