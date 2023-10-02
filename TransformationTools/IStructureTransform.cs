@@ -4,8 +4,8 @@ namespace Zigma.TransformationTools
 {
     internal interface IStructureTransform
     {
-        public Zigma TransformColumnToDate(Zigma zDataset, int dateColumnNumber);
-        public Zigma ColumnRemove(Zigma zDataset, int columnNumber);
+        public ZigmaModel TransformColumnToDate(ZigmaModel zModel, int dateColumnNumber);
+        public ZigmaModel ColumnRemove(ZigmaModel zModel, int columnNumber);
 
     }
 }

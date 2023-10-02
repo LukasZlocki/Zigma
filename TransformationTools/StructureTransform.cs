@@ -1,4 +1,5 @@
-﻿using Zigma.Models;
+﻿using System.Data;
+using Zigma.Models;
 
 namespace Zigma.TransformationTools
 {
@@ -12,9 +13,37 @@ namespace Zigma.TransformationTools
 
     internal class StructureTransform : IStructureTransform
     {
-        public Zigma ColumnRemove(Zigma zDataset, int columnNumber)
+        /// <summary>
+        /// Removing specific column from dataset.
+        /// </summary>
+        /// <param name="zModel">Model with dataset to transform.</param>
+        /// <param name="columnNumber">Column number to remove.</param>
+        /// <returns>Transfored model with dataset. Specific column removed.</returns>
+        public ZigmaModel ColumnRemove(ZigmaModel zModel, int columnNumber)
         {
-            throw new NotImplementedException();
+            ZigmaDataset _zDataset = zModel.GetZigmaDataset();
+            ZigmaDataset _transformedDataset = new();
+            foreach (string[] row in _zDataset.zigmaDataset)
+            {
+                int _rowElementsQuantity = row.Length;
+                string[] _transformedRow = new string[_rowElementsQuantity];
+                int _elementCounter = 0;
+                foreach (string element in row)
+                {
+                    if (_elementCounter == columnNumber)
+                    {
+                        continue; // skipping this column 
+                    }
+                    else
+                    {
+                        _transformedRow[_elementCounter] = element;
+                    }
+                    _transformedDataset.zigmaDataset.Add(_transformedRow);
+                }
+            }
+            ZigmaModel transformedModel = new();
+            transformedModel.CreateZigmaDataset(_transformedDataset);
+            return transformedModel;
         }
 
         /// <summary>
@@ -23,9 +52,9 @@ namespace Zigma.TransformationTools
         /// <param name="zDataset">Zigma dataset to date transform</param>
         /// <param name="dateColumnNumber">Column number to transform to date</param>
         /// <returns>Zigma dataset</returns>
-        public Zigma TransformColumnToDate(Zigma zDataset, int dateColumnNumber)
+        public ZigmaModel TransformColumnToDate(ZigmaModel zModel, int dateColumnNumber)
         {
-            Zigma transformedDataset = new ();
+            ZigmaModel transformedDataset = new ();
             /*
             // ToDo: Code logic here
             double daysToAdd;

@@ -13,6 +13,7 @@
         /// <param name="_zigmaDataset">Dataset</param>
         public void CreateZigmaDataset(ZigmaDataset _zDataset)
         {
+            zDataset.zigmaDataset.Clear();
             zDataset = _zDataset;
             DatasetColumnsQuantity = CalculateColumnsQuantity(_zDataset.zigmaDataset);
             DatasetRowsQuantity = CalculateRowsQuantity(_zDataset.zigmaDataset);
@@ -95,6 +96,16 @@
         {
                 int _datasetRawsQuantity = dataset.Count;
                 return _datasetRawsQuantity;
+        }
+
+        public int GetDatasetColumnQuantity()
+        {
+            return DatasetColumnsQuantity;
+        }
+
+        public int GetDatasetRowQuantity()
+        {
+            return DatasetRowsQuantity;
         }
 
     }

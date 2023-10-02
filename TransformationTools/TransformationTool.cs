@@ -12,26 +12,19 @@ namespace Zigma.TransformationTools
             transform = new StructureTransform();
         }
 
-        public ZigmaModel ColumnCreateNew(Zigma zDataset)
+        /// <summary>
+        /// Removing specific column from dataset.
+        /// </summary>
+        /// <param name="zDataset">Dataset to transform.</param>
+        /// <param name="columnNumber">Column number to remove.</param>
+        /// <returns>Transfored dataset - without specific column number</returns>
+        public ZigmaModel ColumnRemove(ZigmaModel zModel, int columnNumber)
         {
-            throw new NotImplementedException();
-        }
 
-        public Zigma ColumnMove(Zigma zDataset, int columnNumberToMove, int newColumnPossitionNumber)
-        {
-            throw new NotImplementedException();
+            TransformationTool tservice = new();
+            ZigmaModel _transformedModel = tservice.ColumnRemove(zModel, columnNumber);
+            return _transformedModel;
         }
-
-        public Zigma ColumnRemove(Zigma zDataset, int columnNumber)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Zigma ColumnSwitch(Zigma zDataset, int columnNumberToSwitch, int columnNumberSwitch)
-        {
-            throw new NotImplementedException();
-        }
-
 
         /// <summary>
         /// Transforming given column number to date to date time format [yyyy/mm/dd]
@@ -39,9 +32,9 @@ namespace Zigma.TransformationTools
         /// <param name="zDataset">Zigma dataset to date transform</param>
         /// <param name="dateColumnNumber">Column number to transform to date</param>
         /// <returns>Zigma dataset</returns>
-        public Zigma TransformColumnToDate(Zigma zDataset, int dateColumnNumber) 
+        public ZigmaModel TransformColumnToDate(ZigmaModel zModel, int dateColumnNumber) 
         {
-            return transform.TransformColumnToDate(zDataset, dateColumnNumber);
+            return transform.TransformColumnToDate(zModel, dateColumnNumber);
         }
     }
 }

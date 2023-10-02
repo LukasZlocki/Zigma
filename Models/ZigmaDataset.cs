@@ -8,5 +8,10 @@
         {
             zigmaDataset = new();
         }
+
+        public void SetDataset(List<string[]> newDataset)
+        {
+            zigmaDataset = newDataset;
+        }
     }
 }
