@@ -59,34 +59,48 @@ namespace Zigma.TransformationTools
         /// <returns>Zigma dataset</returns>
         public ZigmaModel TransformColumnToDate(ZigmaModel zModel, int dateColumnNumber)
         {
-            ZigmaModel transformedDataset = new ();
-            /*
-            // ToDo: Code logic here
-            double daysToAdd;
-            string formattedDate;
-            DateTime dateConverted;
-            DateTime baseDate = new DateTime(1900, 1, 1);
-
-            foreach (string[] element in MainDataset) {
-
-                string elementToConvert = element[columnNumber];
-                try
+            ZigmaDataset _zDataset = zModel.GetZigmaDataset();
+            ZigmaDataset _transformedDataset = new();
+            List<string[]> transformedDataset = new List<string[]>();
+            foreach (string[] row in _zDataset.zigmaDataset)
+            {
+                int counter = 0;
+                string[] _transformedRow = new string[row.Length];
+                foreach (string column in row)
                 {
-                    daysToAdd = Convert.ToDouble(elementToConvert);
-                    dateConverted = baseDate + TimeSpan.FromDays(daysToAdd);
-                    formattedDate = dateConverted.ToString("yyyy/MM/dd");
+                    if (counter == dateColumnNumber)
+                    {
+                        _transformedRow[counter] = ConvertToSimpleDate(column);
+                        counter++;
+                        continue;
+                    }
+                    else
+                    {
+                        _transformedRow[counter] = column;
+                        counter++;
+                    }
                 }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Error: " + ex);
-                    continue;
-                }
-                if (formattedDate != "" || formattedDate != null) {
-                    element[columnNumber] = formattedDate;
-                } 
+                _transformedDataset.zigmaDataset.Add(_transformedRow);
+            };
+            ZigmaModel _transformedModel = new();
+            _transformedModel.CreateZigmaDataset(_transformedDataset);
+            return _transformedModel;
+        }
+
+        private string ConvertToSimpleDate(string dateToConvert)
+        {
+            string _convertedDate;
+            try
+            {
+                DateTime imputDate = DateTime.ParseExact(dateToConvert, "yyyy-MM-dd HH:mm:ss", null);
+                _convertedDate = imputDate.ToString("yyyy-MM-dd");
             }
-            */
-            return transformedDataset;
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex);
+                return dateToConvert;
+            }
+            return _convertedDate;
         }
 
     }
