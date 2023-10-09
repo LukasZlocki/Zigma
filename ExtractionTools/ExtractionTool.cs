@@ -32,7 +32,7 @@ namespace Zigma.ExtractionTools
         /// <exception cref="NotImplementedException"></exception>
         public void SaveToCsvFile(ZigmaDataset zigmaDataset, string filePath, string csvFileName)
         {
-            throw new NotImplementedException();
+            csvAdapter.SaveToCsvFile(zigmaDataset, filePath, csvFileName);
         }
     }
 }

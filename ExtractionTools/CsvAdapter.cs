@@ -35,6 +35,27 @@ namespace Zigma.ExtractionTools
             return _zDataset;
         }
 
+        public void SaveToCsvFile(List<string[]> dataset, string filePath, string csvFileName)
+        {
+            string fullPath = filePath + csvFileName;
+            try
+            {
+                using (StreamWriter sw = new (fullPath))
+                {
+                    foreach (string[] line in dataset)
+                    {
+                        sw.WriteLine(string.Join(",", line));
+                    }
+                }
+                Console.WriteLine("Data has been successfully saved to CSV file.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred while saving to CSV file: {ex.Message}");
+            }
+
+        }
+
         /// <summary>
         /// Save data from list os strings array (string line in format [data1, data2, data3, data4, ...) to csv file
         /// </summary>
@@ -44,24 +65,11 @@ namespace Zigma.ExtractionTools
         public void SaveToCsvFile(ZigmaDataset zigmaDataset, string filePath, string csvFileName)
         {
             // ToDo: write class transfering zigma model to List<string> to save as csv
-            List<string> dataSet = new (); // ToDo: code transfering of data from zigmna to List<string>here
-            string fullPath = filePath + csvFileName;
-            try
-            {
-                using (StreamWriter sw = new (fullPath))
-                {
-                    foreach (string line in dataSet)
-                    {
-                        sw.WriteLine(line);
-                    }
-                }
-                Console.WriteLine("Data has been successfully saved to CSV file.");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"An error occurred while saving to CSV file: {ex.Message}");
-            }
+            List<string[]> rawDatset = new List<String[]>();
+            rawDatset = zigmaDataset.GetDataset();
+            SaveToCsvFile(rawDatset, filePath, csvFileName);
         }
+        
         /*
        private ZigmaDataset ConvertDataToZigmaModel(List<string> datasetToConvert)
            {
