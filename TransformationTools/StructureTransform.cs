@@ -103,5 +103,10 @@ namespace Zigma.TransformationTools
             return _convertedDate;
         }
 
+        public ZigmaModel ColumnExtract(ZigmaModel zModel, int columnToExtract)
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }

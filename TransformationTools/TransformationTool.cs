@@ -25,6 +25,19 @@ namespace Zigma.TransformationTools
         }
 
         /// <summary>
+        /// Extracting column to new Zigma model
+        /// </summary>
+        /// <param name="zModel">Zigma model dataset</param>
+        /// <param name="columnToExtract"Column number to extract</param>
+        /// <returns>Zigma model</returns>
+        public ZigmaModel ColumnExtract(ZigmaModel zModel, int columnToExtract)
+        {
+            ZigmaModel _zModel = new ();
+            _zModel = transform.ColumnExtract(zModel, columnToExtract);
+            return _zModel;
+        }
+
+        /// <summary>
         /// Transforming given column number to date to date time format [yyyy/mm/dd]
         /// </summary>
         /// <param name="zDataset">Zigma dataset to date transform</param>
@@ -34,5 +47,9 @@ namespace Zigma.TransformationTools
         {
             return transform.TransformColumnToDate(zModel, dateColumnNumber);
         }
+
+
+
+
     }
 }
