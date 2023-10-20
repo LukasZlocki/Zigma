@@ -105,7 +105,14 @@ namespace Zigma.TransformationTools
 
         public ZigmaModel ColumnExtract(ZigmaModel zModel, int columnToExtract)
         {
-            throw new NotImplementedException();
+            ZigmaModel _zModel = new();
+            List<string[]> _extractedColumn = new List<string[]>();
+            foreach(string[] row in zModel.GetRawZigmaDataset()){
+                string[] _element = new string [] { row[columnToExtract] };
+                _extractedColumn.Add(_element);
+            }
+            _zModel.CreateZigmaDatasetFromRawDataset(_extractedColumn);
+            return _zModel;
         }
 
     }
