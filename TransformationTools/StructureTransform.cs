@@ -115,5 +115,24 @@ namespace Zigma.TransformationTools
             return _zModel;
         }
 
+        public ZigmaModel RemoveRecurrenceData(ZigmaModel zModel, int ColumnWithRecurrence)
+        {
+            ZigmaModel _zModelRecurrenceRemoved = new ZigmaModel();
+            List<string> _nonRecurrenceElements = new List<string>();
+            List<string[]> _rawZigmaDataset = new List<string[]>();
+            foreach(var row in zModel.GetRawZigmaDataset()){
+                if(_nonRecurrenceElements.Exists(x => x == row[ColumnWithRecurrence])) {
+                    continue;
+                }
+                else {
+                    _rawZigmaDataset.Add(row);
+                    _nonRecurrenceElements.Add(row[ColumnWithRecurrence]); // adding new element to list of recurrence lements
+                }
+            }
+            _zModelRecurrenceRemoved.CreateZigmaDatasetFromRawDataset(_rawZigmaDataset);
+            return _zModelRecurrenceRemoved;
+        }
+
+
     }
 }

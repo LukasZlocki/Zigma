@@ -48,8 +48,10 @@ namespace Zigma.TransformationTools
             return transform.TransformColumnToDate(zModel, dateColumnNumber);
         }
 
-
-
-
+        public ZigmaModel RemoveRecurrenceData(ZigmaModel zModel, int ColumnWithRecurrence)
+        {
+            ZigmaModel _transformedModel = transform.RemoveRecurrenceData(zModel, ColumnWithRecurrence);
+           return _transformedModel;
+        }
     }
 }
