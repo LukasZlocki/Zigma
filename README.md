@@ -16,7 +16,7 @@ Project is in progress and I will be increasing capabilities of this tool in ord
 ## Features:
 
 Extract:
-Loadnig data from multiple sources
+Loading data from multiple sources
 
 Transform:
 Transforming data according to needs
