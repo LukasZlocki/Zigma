@@ -28,7 +28,7 @@ Loading data to dedicated source
 ## Technologies Used
 
 * C#
-* .Net 7.0
+* .Net
 
 
 ## Creator
