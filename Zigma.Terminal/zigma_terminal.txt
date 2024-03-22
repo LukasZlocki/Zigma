@@ -1,0 +1,53 @@
+
+	*help
+
+	*extract
+		*csv
+		
+	*save
+		*csv
+			*<csv file name> <path>
+	*model
+		*create
+			<model name>
+		*show
+			*name
+			*data
+			*alldata
+			*rows
+				*last
+					<number>
+				*first
+					<number>
+
+			
+		*activate
+			*name
+		*rename
+			<new model name>
+		*column
+			*rename
+				<new name>
+			*remove
+				*<column number>
+				*reccurence 
+					*<column number>
+			*switch
+				*<column number>
+					*with 
+						*<column number
+		*screen
+			*show
+			*showall
+
+# zig extract csv <filename.csv> <path>
+# 
+
+# key up = last command, keep last 30 commands
+
+## cursor :
+*when no model activated
+xxx_>
+
+*when name of model activated
+modelname_>
