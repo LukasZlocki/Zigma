@@ -6,6 +6,7 @@ public class Terminal
 {
     List<string> HistoryCommands { get; set; }
     List<ZigmaModel> Models { get; set; }
+    int ActiveModelPossitionInList { get; set; }
 
     public Terminal()
     {
