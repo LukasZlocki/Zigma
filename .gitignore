@@ -2,3 +2,9 @@
 .vs/
 bin/
 obj/
+
+Zigma/obj
+Zigma/bin
+
+Zigma.Terminal/obj
+Zigma.Terminal/bin
