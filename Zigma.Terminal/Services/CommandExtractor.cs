@@ -1,6 +1,4 @@
-﻿using System.Security.Cryptography;
-
-namespace Zigma.Terminal;
+﻿namespace Zigma.Terminal;
 
 public class CommandExtractor
 {
