@@ -2,8 +2,7 @@
 	*help
 
 	*extract
-		*csv
-		
+		*csv		
 	*save
 		*csv
 			*<csv file name> <path>
@@ -11,6 +10,7 @@
 		*create
 			<model name>
 		*show
+			*models
 			*name
 			*data
 			*alldata
