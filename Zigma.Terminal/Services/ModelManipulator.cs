@@ -5,7 +5,8 @@ namespace Zigma.Terminal.Services
     internal class ModelManipulator
     {
         private ZigmaModel zModel;
-        private readonly CommandExtractor _commandExtractor;
+        private Zigma zigmaManipulator;
+        private readonly CommandExtractor? _commandExtractor;
 
         public ModelManipulator(string commandString, ZigmaModel zModel)
         {
@@ -46,6 +47,8 @@ namespace Zigma.Terminal.Services
             {
                 case "csv":
                     // perform further commands here
+                    var model = zigmaManipulator.extractionTool.LoadFromCsvFile(commands[3], commands[2]);
+                    zModel.CreateZigmaDataset(zigmaManipulator.zigmaModel.GetZigmaDataset());
                     break;
 
                 default:
@@ -73,7 +76,90 @@ namespace Zigma.Terminal.Services
             Console.WriteLine("Show help here...");
         }
 
+        private void ProcessCommandOnLevel1_model(string[] commands)
+        {
+            switch (commands[1])
+            {
+                case "create":
+                    // perform further commands here
+                    break;
+                case "show":
+                    // perform further commands here
+                    break;
+                case "activate":
+                    // perform further commands here
+                    break;
+                case "rename":
+                    // perform further commands here
+                    break;
+                case "column":
+                    // perform further commands here
+                    break;
+                default:
+                    Console.WriteLine("Unknow command.");
+                    break;
+            }
+        }
 
 
+        private void ProcessCommandOnLevel2_model_show(string[] commands)
+        {
+            switch (commands[2])
+            {
+                case "name":
+                    // perform further commands here
+                    break;
+                case "models":
+                    // perform further commands here
+                    break;
+                case "data":
+                    // perform further commands here
+                    break;
+                case "alldata":
+                    // perform further commands here
+                    break;
+                case "rows":
+                    // perform further commands here
+                    break;
+                default:
+                    Console.WriteLine("Unknow command.");
+                    break;
+            }
+        }
+
+        private void ProcessCommandOnLevel3_model_show_rows(string[] commands)
+        {
+            switch (commands[3])
+            {
+                case "last":
+                    // perform further commands here
+                    break;
+                case "first":
+                    // perform further commands here
+                    break;
+                default:
+                    Console.WriteLine("Unknow command.");
+                    break;
+            }
+        }
+
+        private void ProcessCommandOnLevel2_model_column(string[] commands)
+        {
+            switch (commands[2])
+            {
+                case "rename":
+                    // perform further commands here
+                    break;
+                case "remove":
+                    // perform further commands here
+                    break;
+                case "switch":
+                    // perform further commands here
+                    break;
+                default:
+                    Console.WriteLine("Unknow command.");
+                    break;
+            }
+        }
     }
 }
