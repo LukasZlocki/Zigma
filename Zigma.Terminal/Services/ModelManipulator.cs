@@ -4,24 +4,26 @@ namespace Zigma.Terminal.Services
 {
     internal class ModelManipulator
     {
-        private ZigmaModel zModel;
         private Zigma zigmaManipulator;
+        private ZigmaModel zigmaModel;
 
         public ModelManipulator(string[] commands, ref Terminal terminalModel)
         {
-            RunCommand(commands);
+            zigmaManipulator = new();
+            zigmaModel = new();
+            RunCommand(commands, ref terminalModel);
         }
 
-        private void RunCommand(string[] commands)
+        private void RunCommand(string[] commands, ref Terminal terminalModel)
         {
-            ProcessCommandOnLevel0(commands);
+            ProcessCommandOnLevel0(commands, ref terminalModel);
         }
 
-        private void ProcessCommandOnLevel0(string[] commands)
+        private void ProcessCommandOnLevel0(string[] commands, ref Terminal terminalModel)
         {
             switch (commands[0]){
                 case "extract":
-                    // perform further commands here
+                     ProcessCommandOnLevel1_extract(commands, ref terminalModel);
                     break;
                 case "help":
                     // perform further commands here
@@ -38,14 +40,15 @@ namespace Zigma.Terminal.Services
             }
         }
 
-        private void ProcessCommandOnLevel1_extract(string[] commands)
+        private void ProcessCommandOnLevel1_extract(string[] commands, ref Terminal terminalModel)
         {
             switch (commands[1])
             {
                 case "csv":
-                    // perform further commands here
-                    var model = zigmaManipulator.extractionTool.LoadFromCsvFile(commands[3], commands[2]);
-                    zModel.CreateZigmaDataset(zigmaManipulator.zigmaModel.GetZigmaDataset());
+                    var model = zigmaManipulator.extractionTool.LoadFromCsvFile(commands[3], commands[2]); // loading csv to zigma model
+                    zigmaModel.CreateZigmaDataset(zigmaManipulator.zigmaModel.GetZigmaDataset());
+                    terminalModel.AddNewZigmaModel(zigmaModel);
+                    Console.WriteLine("Data loaded to model from csv file.");
                     break;
 
                 default:
@@ -54,7 +57,7 @@ namespace Zigma.Terminal.Services
             }
         }
 
-        private void ProcessCommandOnLevel1_save(string[] commands)
+        private void ProcessCommandOnLevel1_save(string[] commands, ref Terminal terminalModel)
         {
             switch (commands[1])
             {
@@ -68,12 +71,12 @@ namespace Zigma.Terminal.Services
             }
         }
 
-        private void ProcessCommandOnLevel1_help(string[] commands)
+        private void ProcessCommandOnLevel1_help(string[] commands, ref Terminal terminalModel)
         {
             Console.WriteLine("Show help here...");
         }
 
-        private void ProcessCommandOnLevel1_model(string[] commands)
+        private void ProcessCommandOnLevel1_model(string[] commands, ref Terminal terminalModel)
         {
             switch (commands[1])
             {
@@ -99,7 +102,7 @@ namespace Zigma.Terminal.Services
         }
 
 
-        private void ProcessCommandOnLevel2_model_show(string[] commands)
+        private void ProcessCommandOnLevel2_model_show(string[] commands, ref Terminal terminalModel)
         {
             switch (commands[2])
             {
@@ -124,7 +127,7 @@ namespace Zigma.Terminal.Services
             }
         }
 
-        private void ProcessCommandOnLevel3_model_show_rows(string[] commands)
+        private void ProcessCommandOnLevel3_model_show_rows(string[] commands, ref Terminal terminalModel)
         {
             switch (commands[3])
             {
@@ -140,7 +143,7 @@ namespace Zigma.Terminal.Services
             }
         }
 
-        private void ProcessCommandOnLevel2_model_column(string[] commands)
+        private void ProcessCommandOnLevel2_model_column(string[] commands, ref Terminal terminalModel)
         {
             switch (commands[2])
             {
