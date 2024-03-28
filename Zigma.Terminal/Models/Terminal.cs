@@ -13,6 +13,7 @@ public class Terminal
     {
         HistoryCommands = new();
         Models = new();
+        ModelNames = new();
     }
 
     public void AddNewZigmaModel(ZigmaModel zModel)

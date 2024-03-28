@@ -12,7 +12,7 @@ Console.WriteLine("");
 
 do
 {
-    Console.Write("-->> ");
+    Console.Write("{0}-->> ", TerminalModel.GetActiveModelName());
     Command = Console.ReadLine();
     string[] CommandWords = ExtractCommand.ExtractCommands(Command);
     ManipulateModel = new(CommandWords, ref TerminalModel);
