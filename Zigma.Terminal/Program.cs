@@ -9,13 +9,13 @@ string Command="";
 
 Console.WriteLine("Zigma data modeler.");
 Console.WriteLine("");
+
 do
 {
-Console.Write("-->> ");
-Command = Console.ReadLine();
-string[] CommandWords = ExtractCommand.ExtractCommands(Command);
-
-ManipulateModel = new(CommandWords, ref TerminalModel);
-
+    Console.Write("-->> ");
+    Command = Console.ReadLine();
+    string[] CommandWords = ExtractCommand.ExtractCommands(Command);
+    ManipulateModel = new(CommandWords, ref TerminalModel);
 } while(!(Command == "exit"));
+
 Console.WriteLine("Zigma exited.");
