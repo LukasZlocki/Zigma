@@ -32,7 +32,10 @@ namespace Zigma.Terminal.Services
                     // perform further commands here
                     break;
                 case "model":
-                    // perform further commands here
+                    ProcessCommandOnLevel1_model(commands, ref terminalModel);
+                    break;
+                case "clear":
+                    Console.Clear();
                     break;
                 case "exit":
                     // exit
@@ -87,7 +90,8 @@ namespace Zigma.Terminal.Services
                     // perform further commands here
                     break;
                 case "show":
-                    // perform further commands here
+                    zigmaModel = terminalModel.GetActiveZigmaModel();
+                    zigmaModel.PrintZigmaDataset(10);
                     break;
                 case "activate":
                     // perform further commands here
