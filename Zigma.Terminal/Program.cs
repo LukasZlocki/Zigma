@@ -7,6 +7,7 @@ ModelManipulator ManipulateModel;
 
 string Command="";
 
+Console.Clear();
 Console.WriteLine("Zigma data modeler.");
 Console.WriteLine("");
 
