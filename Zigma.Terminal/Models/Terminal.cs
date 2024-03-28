@@ -6,6 +6,7 @@ public class Terminal
 {
     private List<string> HistoryCommands { get; set; }
     private List<ZigmaModel> Models { get; set; }
+    private List<string> ModelNames {get; set; }
     private int ActiveModelPossitionInList = -1;
 
     public Terminal()
@@ -18,6 +19,18 @@ public class Terminal
     {
         Models.Add(zModel);
         ActiveModelPossitionInList++;
+    }
+
+    public string GetActiveModelName()
+    {
+        if (ActiveModelPossitionInList == -1)
+        {
+            return "noname";
+        }
+        else
+        {
+            return ModelNames[ActiveModelPossitionInList];
+        }
     }
 
 }
