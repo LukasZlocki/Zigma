@@ -6,7 +6,7 @@ public class Terminal
 {
     private List<string> HistoryCommands { get; set; }
     private List<ZigmaModel> Models { get; set; }
-    private int ActiveModelPossitionInList = 0;
+    private int ActiveModelPossitionInList = -1;
 
     public Terminal()
     {
@@ -14,6 +14,10 @@ public class Terminal
         Models = new();
     }
 
-    pu
+    public void AddNewZigmaModel(ZigmaModel zModel)
+    {
+        Models.Add(zModel);
+        ActiveModelPossitionInList++;
+    }
 
 }
