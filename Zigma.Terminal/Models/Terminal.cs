@@ -34,4 +34,17 @@ public class Terminal
         }
     }
 
+    public ZigmaModel GetActiveZigmaModel()
+    {
+        return Models[ActiveModelPossitionInList];
+    }
+
+    public void ChangeActiveZigmaModelByModelName(string modelName)
+    {
+        ActiveModelPossitionInList = ModelNames.IndexOf(modelName);
+        if (ActiveModelPossitionInList == -1)
+        {
+            Console.WriteLine("Model with name {0} not found.", modelName);
+        }
+    }
 }
