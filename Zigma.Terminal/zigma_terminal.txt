@@ -1,6 +1,8 @@
 
 	*help
 
+	*exit
+
 	*extract
 		*csv		
 	*save

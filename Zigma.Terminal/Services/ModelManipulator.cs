@@ -34,6 +34,9 @@ namespace Zigma.Terminal.Services
                 case "model":
                     // perform further commands here
                     break;
+                case "exit":
+                    // exit
+                    break;
                 default:
                     Console.WriteLine("Unknow command.");
                     break;
