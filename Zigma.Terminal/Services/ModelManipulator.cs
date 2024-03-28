@@ -6,17 +6,14 @@ namespace Zigma.Terminal.Services
     {
         private ZigmaModel zModel;
         private Zigma zigmaManipulator;
-        private readonly CommandExtractor? _commandExtractor;
 
-        public ModelManipulator(string commandString, ZigmaModel zModel)
+        public ModelManipulator(string[] commands, ref Terminal terminalModel)
         {
-            this.zModel = zModel;
-            RunCommand(commandString);
+            RunCommand(commands);
         }
 
-        private void RunCommand(string commandString)
+        private void RunCommand(string[] commands)
         {
-            string[] commands = _commandExtractor.ExtractCommands(commandString);
             ProcessCommandOnLevel0(commands);
         }
 
