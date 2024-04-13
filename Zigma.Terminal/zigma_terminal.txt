@@ -4,7 +4,8 @@
 	*exit
 
 	*extract
-		*csv		
+		*csv	
+			*<csv file name> <path>
 	*save
 		*csv
 			*<csv file name> <path>
