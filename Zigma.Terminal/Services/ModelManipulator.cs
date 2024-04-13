@@ -23,21 +23,27 @@ namespace Zigma.Terminal.Services
         {
             switch (commands[0]){
                 case "extract":
-                     ProcessCommandOnLevel1_extract(commands, ref terminalModel);
+                    Console.WriteLine("extract");
+                    ProcessCommandOnLevel1_extract(commands, ref terminalModel);
                     break;
                 case "help":
                     // perform further commands here
+                    Console.WriteLine("help");
                     break;
                 case "save":
                     // perform further commands here
+                    Console.WriteLine("save");
                     break;
                 case "model":
+                    Console.WriteLine("model");
                     ProcessCommandOnLevel1_model(commands, ref terminalModel);
                     break;
                 case "clear":
+                    Console.WriteLine("clear");
                     Console.Clear();
                     break;
                 case "exit":
+                    Console.WriteLine("exit");
                     // exit
                     break;
                 default:
@@ -51,6 +57,7 @@ namespace Zigma.Terminal.Services
             switch (commands[1])
             {
                 case "csv":
+                    Console.WriteLine("csv");
                     var model = zigmaManipulator.extractionTool.LoadFromCsvFile(commands[3], commands[2]); // loading csv to zigma model
                     zigmaModel.CreateZigmaDataset(zigmaManipulator.zigmaModel.GetZigmaDataset());
                     terminalModel.AddNewZigmaModel(zigmaModel);
@@ -58,6 +65,7 @@ namespace Zigma.Terminal.Services
                     break;
 
                 default:
+                    Console.WriteLine("extract - Unknow command.");
                     Console.WriteLine("Unknow command.");
                     break;
             }
@@ -68,10 +76,12 @@ namespace Zigma.Terminal.Services
             switch (commands[1])
             {
                 case "csv":
+                    Console.WriteLine("csv");
                     // save data from model to csv file and path name
                     Console.WriteLine("Saving data to csv file name: {0}, path: {1}.", commands[2], commands[3]);
                     break;
                 default:
+                    Console.WriteLine("save - Unknow command.");
                     Console.WriteLine("Unknow command.");
                     break;
             }
@@ -103,6 +113,7 @@ namespace Zigma.Terminal.Services
                     // perform further commands here
                     break;
                 default:
+                    Console.WriteLine("model - Unknow command.");
                     Console.WriteLine("Unknow command.");
                     break;
             }
@@ -129,6 +140,7 @@ namespace Zigma.Terminal.Services
                     // perform further commands here
                     break;
                 default:
+                    Console.WriteLine("show - Unknow command.");
                     Console.WriteLine("Unknow command.");
                     break;
             }
@@ -145,6 +157,7 @@ namespace Zigma.Terminal.Services
                     // perform further commands here
                     break;
                 default:
+                    Console.WriteLine("raws - Unknow command.");
                     Console.WriteLine("Unknow command.");
                     break;
             }
@@ -164,6 +177,7 @@ namespace Zigma.Terminal.Services
                     // perform further commands here
                     break;
                 default:
+                    Console.WriteLine("column - Unknow command.");
                     Console.WriteLine("Unknow command.");
                     break;
             }
