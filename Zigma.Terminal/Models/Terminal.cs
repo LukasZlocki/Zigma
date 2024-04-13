@@ -6,14 +6,12 @@ public class Terminal
 {
     private List<string> HistoryCommands { get; set; }
     private List<ZigmaModel> Models { get; set; }
-    private List<string> ModelNames {get; set; }
     private int ActiveModelPossitionInList = -1;
 
     public Terminal()
     {
         HistoryCommands = new();
         Models = new();
-        ModelNames = new();
     }
 
     public void AddNewZigmaModel(ZigmaModel zModel)
@@ -30,7 +28,7 @@ public class Terminal
         }
         else
         {
-            return ModelNames[ActiveModelPossitionInList];
+            return Models[ActiveModelPossitionInList].GetModelName();
         }
     }
 
@@ -41,20 +39,15 @@ public class Terminal
 
     public void ChangeActiveZigmaModelByModelName(string modelName)
     {
-        ActiveModelPossitionInList = ModelNames.IndexOf(modelName);
+        ActiveModelPossitionInList = Models.FindIndex(z => z.GetModelName() == modelName);
         if (ActiveModelPossitionInList == -1)
         {
             Console.WriteLine("Model with name {0} not found.", modelName);
         }
     }
 
-    public void AddModelName(string modelName)
-    {
-        ModelNames.Add(modelName);
-    }
-
     public void RenameActiveModelName(string newName)
     {
-        ModelNames[ActiveModelPossitionInList] = newName;
+        Models[ActiveModelPossitionInList].SetModelName(newName);
     }
 }
