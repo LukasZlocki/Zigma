@@ -55,4 +55,26 @@ public class Terminal
     {
         Models[ActiveModelPossitionInList].SetModelName(newName);
     }
+
+    /// <summary>
+    /// Showing all available models along with information if model is active(*) or not( )
+    /// </summary>
+    public void ShowListOfModels()
+    {
+        int _counter = 0;
+        string _nonActive = " ";
+        string _active = "*";
+        foreach (var model in Models)
+        {   
+            if (_counter != ActiveModelPossitionInList) 
+            {
+                Console.WriteLine("" + _nonActive + model.GetModelName());
+            }
+            else
+            {
+                Console.WriteLine("" + _active + model.GetModelName());
+            }
+
+        }
+    }
 }
