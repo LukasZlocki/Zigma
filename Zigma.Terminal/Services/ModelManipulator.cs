@@ -133,7 +133,8 @@ namespace Zigma.Terminal.Services
                     // perform further commands here
                     break;
                 case "models":
-                    // perform further commands here
+                    Console.WriteLine("data");
+                    terminalModel.ShowListOfModels();
                     break;
                 case "data":
                     Console.WriteLine("data");
