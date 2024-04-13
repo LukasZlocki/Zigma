@@ -26,7 +26,7 @@ public class Terminal
     {
         if (ActiveModelPossitionInList == -1)
         {
-            return "noname";
+            return "empty";
         }
         else
         {
@@ -46,5 +46,10 @@ public class Terminal
         {
             Console.WriteLine("Model with name {0} not found.", modelName);
         }
+    }
+
+    public void AddModelName(string modelName)
+    {
+        ModelNames.Add(modelName);
     }
 }
