@@ -5,7 +5,7 @@
 
 	*extract
 		*csv	
-			*<csv file name> <path>
+			*<path> <csv file name>
 	*save
 		*csv
 			*<csv file name> <path>
