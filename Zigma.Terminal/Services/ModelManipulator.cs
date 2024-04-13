@@ -102,8 +102,8 @@ namespace Zigma.Terminal.Services
                     // perform further commands here
                     break;
                 case "show":
-                    zigmaModel = terminalModel.GetActiveZigmaModel();
-                    zigmaModel.PrintZigmaDataset(10);
+                    Console.WriteLine("show");
+                    ProcessCommandOnLevel2_model_show(commands, ref terminalModel);
                     break;
                 case "activate":
                     // perform further commands here
@@ -136,7 +136,9 @@ namespace Zigma.Terminal.Services
                     // perform further commands here
                     break;
                 case "data":
-                    // perform further commands here
+                    Console.WriteLine("data");
+                    zigmaModel = terminalModel.GetActiveZigmaModel();
+                    zigmaModel.PrintZigmaDataset(10);
                     break;
                 case "alldata":
                     // perform further commands here
