@@ -37,6 +37,11 @@ public class Terminal
         return Models[ActiveModelPossitionInList];
     }
 
+    public void UpdateActiveZigmaModel(ZigmaModel updatedZigmaModel)
+    {
+        Models[ActiveModelPossitionInList] = updatedZigmaModel;
+    }
+
     public void ChangeActiveZigmaModelByModelName(string modelName)
     {
         ActiveModelPossitionInList = Models.FindIndex(z => z.GetModelName() == modelName);
