@@ -4,7 +4,9 @@
     {
         private int DatasetColumnsQuantity;
         private int DatasetRowsQuantity;
+        private string ModelName;
         private ZigmaDataset zDataset = new();
+        
 
         // CREATE
         /// <summary>
@@ -120,6 +122,16 @@
         public int GetDatasetRowQuantity()
         {
             return DatasetRowsQuantity;
+        }
+
+        public string GetModelName()
+        {
+            return ModelName;
+        }
+
+        public void SetModelName(string modelName)
+        {
+            ModelName = modelName;
         }
 
     }
