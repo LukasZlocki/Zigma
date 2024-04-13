@@ -52,4 +52,9 @@ public class Terminal
     {
         ModelNames.Add(modelName);
     }
+
+    public void RenameActiveModelName(string newName)
+    {
+        ModelNames[ActiveModelPossitionInList] = newName;
+    }
 }
