@@ -58,11 +58,11 @@ namespace Zigma.Terminal.Services
             {
                 case "csv":
                     Console.WriteLine("csv");
-                    //check if string has / sign if not add it
+                    // ToDo: check if string has / sign if not add it
                     var model = zigmaManipulator.extractionTool.LoadFromCsvFile(commands[2], commands[3]); // loading csv to zigma model
                     zigmaModel.CreateZigmaDataset(model);
                     terminalModel.AddNewZigmaModel(zigmaModel);
-                    // aad name of new model
+                    // ad name of new model
                     terminalModel.AddModelName("noname");
                     Console.WriteLine("Data loaded to model from csv file.");
                     break;
