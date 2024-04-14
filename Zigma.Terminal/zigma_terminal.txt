@@ -23,7 +23,7 @@
 				*first
 					<number>			
 		*activate
-			*name
+			*<name>
 		*rename
 			<new model name>
 		*column
