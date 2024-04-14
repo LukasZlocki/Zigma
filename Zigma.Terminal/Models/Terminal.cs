@@ -74,7 +74,7 @@ public class Terminal
             {
                 Console.WriteLine("" + _active + model.GetModelName());
             }
-
+            _counter++;
         }
     }
 }
