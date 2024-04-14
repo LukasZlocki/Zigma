@@ -109,7 +109,6 @@ namespace Zigma.Terminal.Services
                     terminalModel.ChangeActiveZigmaModelByModelName(commands[2]);
                     break;
                 case "rename":
-                    // perform further commands here
                     zigmaModel = terminalModel.GetActiveZigmaModel();
                     zigmaModel.SetModelName(commands[2]);
                     terminalModel.UpdateActiveZigmaModel(zigmaModel);
