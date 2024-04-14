@@ -106,7 +106,7 @@ namespace Zigma.Terminal.Services
                     ProcessCommandOnLevel2_model_show(commands, ref terminalModel);
                     break;
                 case "activate":
-                    // perform further commands here
+                    terminalModel.ChangeActiveZigmaModelByModelName(commands[2]);
                     break;
                 case "rename":
                     // perform further commands here
