@@ -141,7 +141,10 @@ namespace Zigma.Terminal.Services
                     zigmaModel.PrintZigmaDataset(10);
                     break;
                 case "alldata":
-                    // perform further commands here
+                    Console.WriteLine("alldata");
+                    zigmaModel = terminalModel.GetActiveZigmaModel();
+                    int _rowQuantity = zigmaModel.GetDatasetRowQuantity();
+                    zigmaModel.PrintZigmaDataset(_rowQuantity);
                     break;
                 case "rows":
                     // perform further commands here
