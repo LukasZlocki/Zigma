@@ -4,7 +4,8 @@
 	*exit
 
 	*extract
-		*csv		
+		*csv	
+			*<path> <csv file name>
 	*save
 		*csv
 			*<csv file name> <path>
@@ -20,9 +21,9 @@
 				*last
 					<number>
 				*first
-					<number>		
+					<number>			
 		*activate
-			*name
+			*<name>
 		*rename
 			<new model name>
 		*column
