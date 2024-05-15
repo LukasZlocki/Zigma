@@ -114,7 +114,7 @@ namespace Zigma.Terminal.Services
                     terminalModel.UpdateActiveZigmaModel(zigmaModel);
                     break;
                 case "column":
-                    // perform further commands here
+                    // ToDo : perform further commands here
                     break;
                 default:
                     Console.WriteLine("model - Unknow command.");
