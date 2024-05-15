@@ -99,7 +99,7 @@ namespace Zigma.Terminal.Services
             switch (commands[1])
             {
                 case "create":
-                    // perform further commands here
+                    // ToDo : perform further commands here
                     break;
                 case "show":
                     Console.WriteLine("show");
