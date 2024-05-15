@@ -115,6 +115,8 @@ namespace Zigma.Terminal.Services
                     break;
                 case "column":
                     // ToDo : perform further commands here
+                    Console.WriteLine("column");
+                    ProcessCommandOnLevel2_model_column(commands, ref terminalModel);
                     break;
                 default:
                     Console.WriteLine("model - Unknow command.");
@@ -182,6 +184,11 @@ namespace Zigma.Terminal.Services
                     break;
                 case "remove":
                     // perform further commands here
+                    Console.WriteLine("remove");
+                    zigmaModel = terminalModel.GetActiveZigmaModel();
+                    int _columnNumber = int.Parse(commands[3]);
+                    zigmaModel = zigmaManipulator.transformationTool.ColumnRemove(zigmaModel, _columnNumber);
+                    terminalModel.UpdateActiveZigmaModel(zigmaModel);
                     break;
                 case "switch":
                     // perform further commands here
