@@ -53,5 +53,17 @@ namespace Zigma.TransformationTools
             ZigmaModel _transformedModel = transform.RemoveRecurrenceData(zModel, ColumnWithRecurrence);
            return _transformedModel;
         }
+
+        /// <summary>
+        /// Switching columns
+        /// </summary>
+        /// <param name="zModel">Zigma dataset to column transformation</param>
+        /// <param name="column1">Column1 to switch</param>
+        /// <param name="column2">Column2 to Switch</param>
+        /// <returns></returns>
+        public ZigmaModel ColumnSwitch(ZigmaModel zModel, int column1, int column2){
+            ZigmaModel _transformedModel = transform.ColumnSwitch(zModel, column1, column2);
+            return _transformedModel;
+        }
     }
 }
