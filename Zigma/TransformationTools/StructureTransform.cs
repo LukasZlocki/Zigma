@@ -133,6 +133,20 @@ namespace Zigma.TransformationTools
             return _zModelRecurrenceRemoved;
         }
 
+        public ZigmaModel ColumnSwitch(ZigmaModel zModel, int column1, int column2){
+            ZigmaModel _zModel = new();
+            List<string[]> _rawZigmaDataset = new List<string[]>();
+
+            foreach(var row in zModel.GetRawZigmaDataset()){
+                string temp;
+                temp = row[column1];
+                row[column1] = row[column2];
+                row[column2] = temp;
+                _rawZigmaDataset.Add(row);
+            }
+            _zModel.CreateZigmaDatasetFromRawDataset(_rawZigmaDataset);
+            return _zModel;
+        }
 
     }
 }
