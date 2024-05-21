@@ -183,21 +183,67 @@ namespace Zigma.Terminal.Services
                     // perform further commands here
                     break;
                 case "remove":
-                    // perform further commands here
                     Console.WriteLine("remove");
-                    zigmaModel = terminalModel.GetActiveZigmaModel();
-                    int _columnNumber = int.Parse(commands[3]);
-                    zigmaModel = zigmaManipulator.transformationTool.ColumnRemove(zigmaModel, _columnNumber);
-                    terminalModel.UpdateActiveZigmaModel(zigmaModel);
+                    ProcessCommandOnLevel3_model_column_remove(commands, ref terminalModel);
                     break;
                 case "switch":
-                    // perform further commands here
+                    Console.WriteLine("switch");
+                    ProcessCommandOnLevel3_model_column_switch(commands, ref terminalModel);
                     break;
                 default:
                     Console.WriteLine("column - Unknow command.");
                     Console.WriteLine("Unknow command.");
                     break;
             }
+        }
+
+        private void ProcessCommandOnLevel3_model_column_remove(string[] commands, ref Terminal terminalModel)
+        {
+
+            if (int.TryParse(commands[3], out int intValue))
+            {
+                switch (commands[3])
+                {
+                    default:
+                        Console.WriteLine("" + commands[3]);
+                        zigmaModel = terminalModel.GetActiveZigmaModel();
+                        int _columnNumber = int.Parse(commands[3]);
+                        zigmaModel = zigmaManipulator.transformationTool.ColumnRemove(zigmaModel, _columnNumber);
+                        terminalModel.UpdateActiveZigmaModel(zigmaModel);
+                        break;
+                }
+
+            }
+            else
+            {
+                switch (commands[3])
+                {
+                    case "recurrence":
+                        Console.WriteLine("recurrence");
+                        Console.WriteLine("" + commands[3]);
+                        zigmaModel = terminalModel.GetActiveZigmaModel();
+                        int _columnRecurrenceNumber = int.Parse(commands[3]);
+                        zigmaModel = zigmaManipulator.transformationTool.RemoveRecurrenceData(zigmaModel, _columnRecurrenceNumber);
+                        terminalModel.UpdateActiveZigmaModel(zigmaModel);
+                        break;
+                    default:
+                        Console.WriteLine("remove - Unknow command.");
+                        Console.WriteLine("Unknow command.");
+                        break;
+                }
+            }
+        }
+
+
+        private void ProcessCommandOnLevel3_model_column_switch(string[] commands, ref Terminal terminalModel)
+        {
+            Console.WriteLine("" + commands[3]);
+            Console.WriteLine("" + commands[4]);
+            zigmaModel = terminalModel.GetActiveZigmaModel();
+            // ToDo : Write switching columns zigma library and implement here ...
+            // implementation draft:
+            // zigmaModel = zigmaManipulator.transformationTool.ColumnSwitch(commands[3], commands[4]);
+        
         }
     }
 }

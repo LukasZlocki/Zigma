@@ -129,6 +129,35 @@ namespace Zigma.Tests
             Assert.Equal(expectedModel.GetRawZigmaDataset(), actualModel.GetRawZigmaDataset());
         }
 
+        [Fact]
+        public void SwitchColumns_ShouldSwitchGivenColumnsAndReturnZigmaModel()
+        {
+            // Arrange
+            List<string[]> TestSet = new List<string[]>{
+                new string[] {"aa", "Date" , "cc", "dd"},
+                new string[] {"ee", "2022-02-21", "gg", "hh"},
+                new string[] {"ii", "2022-02-21", "kk", "ll"}
+            };
+
+            List<string[]> ExpectedSet = new List<string[]>
+            {
+                new string[] {"aa", "dd", "cc", "Date" },
+                new string[] {"ee", "hh", "gg", "2022-02-21"},
+                new string[] {"ii", "ll", "kk", "2022-02-21"}
+            };
+            ZigmaModel expectedModel = new();
+            expectedModel.CreateZigmaDatasetFromRawDataset(ExpectedSet);
+
+            // Act
+            ZigmaModel actualModel = new();
+            TransformationTool transform = new();
+            actualModel.CreateZigmaDatasetFromRawDataset(TestSet);
+            actualModel = transform.ColumnSwitch(actualModel, 1, 3);
+
+            // Assert
+            Assert.Equal(expectedModel.GetRawZigmaDataset(), actualModel.GetRawZigmaDataset());
+        }
+
 
     }
 }
